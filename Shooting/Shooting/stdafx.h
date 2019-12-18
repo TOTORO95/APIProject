@@ -16,16 +16,10 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-#include <vector>
-#include <list>
-#include <ctime>
-#include <cmath>
 
 using namespace std;
 
 // User Header
 #include "Define.h"
-#include "Extern.h" 
+#include "Extern.h"
 #include "Struct.h"
-
-

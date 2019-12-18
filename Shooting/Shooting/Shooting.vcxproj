@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{B57629BD-0C66-4CD6-A98A-8C93DC4431EE}</ProjectGuid>
+    <ProjectGuid>{1B735E20-4923-4D73-92BB-72080BCA4944}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>ShootingGame</RootNamespace>
+    <RootNamespace>Shooting</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -145,26 +145,18 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Bullet.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="Extern.h" />
     <ClInclude Include="GameObject.h" />
-    <ClInclude Include="GameRoutine.h" />
-    <ClInclude Include="Monster.h" />
-    <ClInclude Include="Player.h" />
     <ClInclude Include="Resource.h" />
-    <ClInclude Include="ShootingGame.h" />
+    <ClInclude Include="Shooting.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="GameObject.cpp" />
-    <ClCompile Include="GameRoutine.cpp" />
-    <ClCompile Include="Monster.cpp" />
-    <ClCompile Include="Player.cpp" />
-    <ClCompile Include="ShootingGame.cpp" />
+    <ClCompile Include="Shooting.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -173,10 +165,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="ShootingGame.rc" />
+    <ResourceCompile Include="Shooting.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="ShootingGame.ico" />
+    <Image Include="Shooting.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

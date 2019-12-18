@@ -5,7 +5,9 @@ class CGameRoutine
 {
 private:
 	CGameObject* m_pPlayer;
-
+	CGameObject* m_pMonster;
+	//vector<CGameObject*> m_pMonsters;
+	HDC m_HDC;
 public:
 	void Initialize();
 	void Update();

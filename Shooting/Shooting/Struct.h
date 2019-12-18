@@ -1,14 +1,14 @@
 #pragma once
-
 #ifndef __STRUCT_H__
-typedef struct Info 
+
+typedef struct PosInfo
 {
 	float fX, fY;
 	float fCX, fCY;
 
-}Info;
+
+}PosInfo;
 
 
-
-#define __STRUCT_H__
+#define  __STRUCT_H__
 #endif // !__STRUCT_H__

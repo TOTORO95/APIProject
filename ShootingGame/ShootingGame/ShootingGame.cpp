@@ -3,19 +3,19 @@
 
 #include "stdafx.h"
 #include "ShootingGame.h"
-#include "Player.h"
+#include "GameRoutine.h"
 #define MAX_LOADSTRING 100
 
 // 전역 변수:
+HWND g_hWnd;
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
-
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
+//INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -38,24 +38,38 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_SHOOTINGGAME));
+    HACCEL hAccelTable = LoadAccelerators(hInstance, 
+		MAKEINTRESOURCE(IDC_SHOOTINGGAME));
 
     MSG msg;
+	msg.message = WM_NULL;
 
-    // 기본 메시지 루프입니다.
-    while (PeekMessage(&msg, nullptr, 0, 0,PM_REMOVE))
+	CGameRoutine gameRoutine;
+	gameRoutine.Initialize();
+
+	DWORD dwOldTime = GetTickCount();
+	DWORD dwCurTime = 0;
+
+	// 기본 메시지 루프입니다.
+    while (WM_QUIT != msg.message)
     {
 		// PM_REMOVE: 메시지 큐에서 먼저 들어온 메시지를 제거함.
 		// PM_NOREMOVE: 메시지 큐에h서 메시지를 제거하지 않고 그대로 둠.
-		if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+		if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
-		CPlayer player;
-		player.Initialize();
-		
+		dwCurTime = GetTickCount();
 
+		if (dwCurTime - dwOldTime >= 10)
+		{
+
+			gameRoutine.Update();
+			gameRoutine.Render();
+
+			dwOldTime = dwCurTime;
+		}
 
     }
 
@@ -83,9 +97,10 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_SHOOTINGGAME));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_SHOOTINGGAME);
+    wcex.lpszMenuName   = nullptr;
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
+
 
     return RegisterClassExW(&wcex);
 }
@@ -108,13 +123,17 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 	//HWND window handle <- current window handle key
    //HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
    //   CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+	AdjustWindowRect(&rWindowSize, WS_OVERLAPPEDWINDOW, FALSE);
+
 	HWND hWnd = CreateWindow(szWindowClass,szTitle, WS_OVERLAPPEDWINDOW,
-		CW_USEDEFAULT, 0, rWindowSize.right - rWindowSize.left, rWindowSize.bottom - rWindowSize.top, nullptr, nullptr, hInstance, nullptr);
-	g_hWnd = hWnd;
+		CW_USEDEFAULT, 0, rWindowSize.right - rWindowSize.left,
+		rWindowSize.bottom - rWindowSize.top, nullptr, nullptr, hInstance, nullptr);
 	if (!hWnd)
    {
       return FALSE;
    }
+	
+	g_hWnd= hWnd;
 
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
@@ -134,34 +153,44 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
-    {
-    case WM_COMMAND:
-        {
-            int wmId = LOWORD(wParam);
-            // 메뉴 선택을 구문 분석합니다.
-            switch (wmId)
-            {
-            case IDM_ABOUT:
-                DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-                break;
-            case IDM_EXIT:
-                DestroyWindow(hWnd);
-                break;
-            default:
-                return DefWindowProc(hWnd, message, wParam, lParam);
-            }
-        }
-        break;
-    case WM_PAINT:
-        {
-            PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
-            // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다.
+    
+    //case WM_COMMAND:
+    //    {
+    //        int wmId = LOWORD(wParam);
+    //        // 메뉴 선택을 구문 분석합니다.
+    //        switch (wmId)
+    //        {
+    //        case IDM_ABOUT:
+    //            DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+    //            break;
+    //        case IDM_EXIT:
+    //            DestroyWindow(hWnd);
+    //            break;
+    //        default:
+    //            return DefWindowProc(hWnd, message, wParam, lParam);
+    //        }
+    //    }
+    //    break;
+    //case WM_PAINT:
+    //    {
+    //        PAINTSTRUCT ps;
+    //        HDC hdc = BeginPaint(hWnd, &ps);
+    //        // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다.
 
-            EndPaint(hWnd, &ps);
-        }
-        break;
+    //        EndPaint(hWnd, &ps);
+    //    }
+    //    break;
+	switch (message)
+	{
+	case WM_KEYDOWN:
+		switch (wParam)
+		{
+		case VK_ESCAPE:
+			DestroyWindow(hWnd);
+			break;
+		}
+		break;
+
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
@@ -170,23 +199,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
     }
     return 0;
 }
-
-// 정보 대화 상자의 메시지 처리기입니다.
-INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
-{
-    UNREFERENCED_PARAMETER(lParam);
-    switch (message)
-    {
-    case WM_INITDIALOG:
-        return (INT_PTR)TRUE;
-
-    case WM_COMMAND:
-        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
-        {
-            EndDialog(hDlg, LOWORD(wParam));
-            return (INT_PTR)TRUE;
-        }
-        break;
-    }
-    return (INT_PTR)FALSE;
-}
+//
+//// 정보 대화 상자의 메시지 처리기입니다.
+//INT_PTR CALLBACK About(HWND hDlg, UINT message, WPARAM wParam, LPARAM lParam)
+//{
+//    UNREFERENCED_PARAMETER(lParam);
+//    switch (message)
+//    {
+//    case WM_INITDIALOG:
+//        return (INT_PTR)TRUE;
+//
+//    case WM_COMMAND:
+//        if (LOWORD(wParam) == IDOK || LOWORD(wParam) == IDCANCEL)
+//        {
+//            EndDialog(hDlg, LOWORD(wParam));
+//            return (INT_PTR)TRUE;
+//        }
+//        break;
+//    }
+//    return (INT_PTR)FALSE;
+//}

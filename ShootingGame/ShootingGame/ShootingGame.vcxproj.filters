@@ -24,6 +24,12 @@
     <Filter Include="소스 파일\05.GameRoutine">
       <UniqueIdentifier>{7675afc7-7484-4456-975a-31b949961ebe}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\02.Monster">
+      <UniqueIdentifier>{70bc9df4-0eb5-412c-a5b2-ffcab80d4230}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="소스 파일\03.Bullet">
+      <UniqueIdentifier>{86bea839-57fe-464c-ab48-94d8b17eaa9f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -50,11 +56,21 @@
     <ClInclude Include="Struct.h">
       <Filter>소스 파일\99.Defalut</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h" />
     <ClInclude Include="Player.h">
       <Filter>소스 파일\01.Player</Filter>
     </ClInclude>
-    <ClInclude Include="GameRoutine.h" />
+    <ClInclude Include="GameObject.h">
+      <Filter>소스 파일\00.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameRoutine.h">
+      <Filter>소스 파일\05.GameRoutine</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>소스 파일\03.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>소스 파일\02.Monster</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -70,7 +86,13 @@
       <Filter>소스 파일\01.Player</Filter>
     </ClCompile>
     <ClCompile Include="GameRoutine.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>소스 파일\05.GameRoutine</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>소스 파일\02.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>소스 파일\03.Bullet</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
