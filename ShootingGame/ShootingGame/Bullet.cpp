@@ -43,11 +43,12 @@ void Bullet::CheckCollide(CGameObject * _pcgo)
 	float fTPDistance = pow(abs(_pcgo->GetInfo().fX - GetInfo().fX), 2) +
 		pow(abs(_pcgo->GetInfo().fY - GetInfo().fY), 2);
 
-	if (fTPDistance <= (GetInfo().fCX + GetInfo().fCY))
+	if (fTPDistance <= ((GetInfo().fCX)+_pcgo->GetInfo().fCX)/2)
 	{
-        	_pcgo->Release();
+       	_pcgo->Release();
 		Release();
 	}
+
 }
 
 void Bullet::Release()
