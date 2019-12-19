@@ -2,6 +2,7 @@
 #include "GameRoutine.h"
 #include "Player.h"
 #include "Monster.h"
+#include "CollisionManager.h"
 
 
 CGameRoutine::CGameRoutine()
@@ -27,11 +28,11 @@ void CGameRoutine::Initialize()
 	//	m_pMonsterList.push_back(temp);
 	//}
 	m_objectList[PLAYER].push_back(AbstractFactory<CPlayer>::CreateObject());
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < 2; i++)
 	{
 		m_objectList[MONSTER].push_back(AbstractFactory<CMonster>::CreateObject());
 	}
-	
+
 }
 
 int CGameRoutine::Update()
@@ -62,6 +63,8 @@ int CGameRoutine::Update()
 		}
 
 	}
+	CCollisionManager::CollisionRect(m_objectList[PLAYER], m_objectList[MONSTER]);
+
 	return 0;
 }
 
@@ -81,6 +84,7 @@ void CGameRoutine::Render()
 		for (; iter_begin != iter_end; ++iter_begin)
 			(*iter_begin)->Render(m_hWnd);
 	}
+
 
 
 }

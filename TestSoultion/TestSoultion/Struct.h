@@ -7,5 +7,13 @@ typedef struct Info
 
 }Info;
 
+typedef struct CollInfo
+{
+	bool bIsLeft;
+	bool bIsTop;
+	bool bIsRight;
+	bool bIsBottom;
+}CollInfo;
+
 #define __STRUCT_H__
 #endif // !__STRUCT_H__

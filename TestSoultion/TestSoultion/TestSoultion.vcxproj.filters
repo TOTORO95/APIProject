@@ -72,6 +72,7 @@
     <ClInclude Include="AbstractFactory.h">
       <Filter>98.Headers</Filter>
     </ClInclude>
+    <ClInclude Include="CollisionManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestSoultion.cpp">
@@ -92,6 +93,7 @@
     <ClCompile Include="Monster.cpp">
       <Filter>00.GameObject\02.Monster</Filter>
     </ClCompile>
+    <ClCompile Include="CollisionManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">
