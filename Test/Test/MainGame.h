@@ -12,5 +12,6 @@ public:
 private:
 	list<CGameObject*> m_pGameList[OBJECT_END];
 	HDC m_hdc;
+	
 };
 

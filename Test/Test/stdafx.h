@@ -24,11 +24,15 @@
 #include <cmath>
 using namespace std;
 
-
 // UserHeaders  
+#include "Function.h"
 #include "Define.h"
 #include "Struct.h"
 #include "Extern.h"
 #include "TypeDef.h"
 #include "Enum.h"
 #include "AbstractFactory.h"
+
+//Manager
+#include "CollisionManager.h"
+#include "DetectManager.h"

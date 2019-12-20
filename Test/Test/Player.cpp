@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
-
+#include "Bullet.h"
 
 CPlayer::CPlayer()
 {
@@ -17,6 +17,9 @@ void CPlayer::Initialize()
 	SetSize(100, 100);
 	m_fSpeed = 5.0f;
 	m_bIsDead = false;
+	m_pBulletList = nullptr;
+	InitHP(100);
+	
 }
 
 int CPlayer::Update()
@@ -32,12 +35,14 @@ int CPlayer::Update()
 void CPlayer::Render(HDC _hdc)
 {
 	UpdateRect();
+	RenderHP(_hdc);
 	Rectangle(_hdc, m_tRect.left, m_tRect.top, m_tRect.right, m_tRect.bottom);
-
+	
 }
 
 void CPlayer::Relese()
 {
+
 }
 
 void CPlayer::InputKey()
@@ -51,6 +56,9 @@ void CPlayer::InputKey()
 	if (GetAsyncKeyState(VK_DOWN) & 0x8000)
 		m_tInfo.fPosY += m_fSpeed;
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	{
 		cout << "shoot" << endl;
-
+		m_pBulletList->push_back(AbsFactory<CBullet>::Create(m_tInfo.fPosX, m_tInfo.fPosY));
+	
+	}
 }
