@@ -10,6 +10,27 @@
     <Filter Include="00.Test">
       <UniqueIdentifier>{95899c66-269e-4935-95c3-cf15c60d2a16}</UniqueIdentifier>
     </Filter>
+    <Filter Include="10.GameObject">
+      <UniqueIdentifier>{e779f22f-df85-4caf-846a-10a98e402cd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\00.Player">
+      <UniqueIdentifier>{a879a03e-a952-4d83-be82-a44abe7dee2d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\01.Monster">
+      <UniqueIdentifier>{360c5cc6-cc87-404c-b783-7d0eb60c4588}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\02.Bullet">
+      <UniqueIdentifier>{c17449be-d35c-4fa7-b3e3-1caa99883169}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\03.Item">
+      <UniqueIdentifier>{b932631b-f11c-4e73-91f8-f7ad4a3f502a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.MainGame">
+      <UniqueIdentifier>{8a99bce9-592c-4368-ba4b-fd3694fea444}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject\09.AbstactFactory">
+      <UniqueIdentifier>{62362086-57ef-4aa0-bcf3-cba779665d9c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -27,14 +48,52 @@
     <ClInclude Include="Test.h">
       <Filter>00.Test</Filter>
     </ClInclude>
+    <ClInclude Include="Define.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Struct.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Extern.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>10.GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>10.GameObject\00.Player</Filter>
+    </ClInclude>
+    <ClInclude Include="Monster.h">
+      <Filter>10.GameObject\01.Monster</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h" />
+    <ClInclude Include="TypeDef.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AbstractFactory.h">
+      <Filter>10.GameObject\09.AbstactFactory</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="stdafx.cpp">
-      <Filter>99.Defalut</Filter>
-    </ClCompile>
     <ClCompile Include="Test.cpp">
       <Filter>00.Test</Filter>
     </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Defalut</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>10.GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>10.GameObject\00.Player</Filter>
+    </ClCompile>
+    <ClCompile Include="Monster.cpp">
+      <Filter>10.GameObject\01.Monster</Filter>
+    </ClCompile>
+    <ClCompile Include="MainGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">
