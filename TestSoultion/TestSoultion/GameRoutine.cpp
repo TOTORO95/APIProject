@@ -28,7 +28,7 @@ void CGameRoutine::Initialize()
 	//	m_pMonsterList.push_back(temp);
 	//}
 	m_objectList[PLAYER].push_back(AbstractFactory<CPlayer>::CreateObject());
-	for (int i = 0; i < 2; i++)
+	for (int i = 0; i < 5; i++)
 	{
 		m_objectList[MONSTER].push_back(AbstractFactory<CMonster>::CreateObject());
 	}
@@ -55,7 +55,7 @@ int CGameRoutine::Update()
 			if (bISDead == DEAD_OBJ)
 			{
 				SafeDelete((*itr_begin));
-				m_objectList[i].erase(itr_begin);
+				itr_begin=m_objectList[i].erase(itr_begin);
 			}
 			else
 				itr_begin++;
@@ -63,7 +63,9 @@ int CGameRoutine::Update()
 		}
 
 	}
-	CCollisionManager::CollisionRect(m_objectList[PLAYER], m_objectList[MONSTER]);
+	if(!(m_objectList[PLAYER].empty()) || !(m_objectList[MONSTER].empty()))
+		CCollisionManager::CollisionSphere(m_objectList[PLAYER], m_objectList[MONSTER]);
+		//CCollisionManager::CollisionRect(m_objectList[PLAYER], m_objectList[MONSTER]);
 
 	return 0;
 }
@@ -78,11 +80,8 @@ void CGameRoutine::Render()
 	//}
 	for (int i = 0; i < OBJECT_END; ++i)
 	{
-		auto iter_begin = m_objectList[i].begin();
-		auto iter_end = m_objectList[i].end();
-
-		for (; iter_begin != iter_end; ++iter_begin)
-			(*iter_begin)->Render(m_hWnd);
+		for (auto &Object : m_objectList[i])
+			Object->Render(m_hWnd);
 	}
 
 

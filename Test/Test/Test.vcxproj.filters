@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="99.Defalut">
+      <UniqueIdentifier>{2348482d-a2b7-4645-b0e5-9a50376fb7b7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="90.Headers">
+      <UniqueIdentifier>{07c30e5f-a1e2-44dd-863b-0a16b73e2af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.Test">
+      <UniqueIdentifier>{95899c66-269e-4935-95c3-cf15c60d2a16}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="targetver.h">
+      <Filter>99.Defalut</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Defalut</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="Test.h">
+      <Filter>00.Test</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>99.Defalut</Filter>
+    </ClCompile>
+    <ClCompile Include="Test.cpp">
+      <Filter>00.Test</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="small.ico">
+      <Filter>99.Defalut</Filter>
+    </Image>
+    <Image Include="Test.ico">
+      <Filter>99.Defalut</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Test.rc">
+      <Filter>99.Defalut</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

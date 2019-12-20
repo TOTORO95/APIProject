@@ -14,8 +14,11 @@ CMonster::~CMonster()
 
 int CMonster::Update()
 {
-	
-	return 0;
+	if (m_bISDead)
+		return DEAD_OBJ;
+
+	return ALIVE_OBJ;
+
 }
 
 void CMonster::Initialize()
@@ -24,7 +27,7 @@ void CMonster::Initialize()
 	float fRY = rand() % 600+50;
 	m_tInfo.fSizeX = 100;
 	m_tInfo.fSizeY = 100;
-
+	m_bISDead = false;
 	SetPos(fRX, fRY);
 }
 
