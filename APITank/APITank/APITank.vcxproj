@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA009F7E-F307-4A28-BE04-8C5B3BEE8944}</ProjectGuid>
+    <ProjectGuid>{7B2119FB-0F92-464C-BCC0-EE4AB6DCBFE8}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>APIStudy</RootNamespace>
+    <RootNamespace>APITank</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,7 +141,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="APIStudy.h" />
+    <ClInclude Include="APITank.h" />
     <ClInclude Include="Define.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Resource.h" />
@@ -150,7 +150,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APIStudy.cpp" />
+    <ClCompile Include="APITank.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -160,10 +160,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="APIStudy.rc" />
+    <ResourceCompile Include="APITank.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="APIStudy.ico" />
+    <Image Include="APITank.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -2,9 +2,10 @@
 
 #ifndef __DEFINE_H__
 
-#define WINCX 1248
-#define WINCY 1024
+#define WINCX 800
+#define WINCY 600
 
+#define PI 3.141592
 
 
 #define  __DEFINE_H__

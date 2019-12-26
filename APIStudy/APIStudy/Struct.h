@@ -3,12 +3,12 @@
 
 typedef struct Info
 {
-	float fX, fY;
+	float fPosX, fPosY;
 	float fCX, fCY;
+}INFO;
 
-}Info;
+
 
 
 #define  __STRUCT_H__
 #endif // !__STRUCT_H__
-

@@ -16,8 +16,12 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-
-
-
-//User Headers
+#include <iostream>
+#include <cmath>
+#include <ctime>
+using namespace std;
+//Userheaders
+#include "Define.h"
 #include "Struct.h"
+
+

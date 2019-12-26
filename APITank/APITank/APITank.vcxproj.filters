@@ -2,53 +2,53 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="99.Default">
-      <UniqueIdentifier>{eabdc424-e18a-46ff-86a1-7793cf91fef1}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="00.WinMain">
-      <UniqueIdentifier>{709dbff9-7f0d-4d1d-a048-62e26722cd41}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="01.MainGame">
-      <UniqueIdentifier>{2a77c64c-18f3-41a5-8c99-ebde428df8cc}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="10.GameObject">
-      <UniqueIdentifier>{adf7c523-f391-40e4-baae-db876e000740}</UniqueIdentifier>
+      <UniqueIdentifier>{8f499b50-ac83-40c8-b476-4c3388544dfb}</UniqueIdentifier>
     </Filter>
     <Filter Include="98.Headers">
-      <UniqueIdentifier>{25c0fb3d-26a6-4710-978f-d922a552bc39}</UniqueIdentifier>
+      <UniqueIdentifier>{2eef0b32-2b8c-4c2c-9880-6a7bd80ead62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="00.WinMain">
+      <UniqueIdentifier>{f4a8abaf-aeec-4875-b685-197ae99d39dc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="01.MainGame">
+      <UniqueIdentifier>{3c2ead13-da7d-4d45-b92c-5fb9610f350b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="10.GameObject">
+      <UniqueIdentifier>{119b6811-99fd-4a26-9153-e3ce8b722db2}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Define.h">
-      <Filter>98.Headers</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>98.Headers</Filter>
-    </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>98.Headers</Filter>
     </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>98.Headers</Filter>
+    <ClInclude Include="Resource.h">
+      <Filter>99.Default</Filter>
     </ClInclude>
-    <ClInclude Include="APIStudy.h">
+    <ClInclude Include="targetver.h">
+      <Filter>99.Default</Filter>
+    </ClInclude>
+    <ClInclude Include="APITank.h">
       <Filter>00.WinMain</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Define.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
     <ClInclude Include="Struct.h">
       <Filter>98.Headers</Filter>
     </ClInclude>
+    <ClInclude Include="GameObject.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APIStudy.cpp">
-      <Filter>00.WinMain</Filter>
-    </ClCompile>
     <ClCompile Include="stdafx.cpp">
       <Filter>99.Default</Filter>
+    </ClCompile>
+    <ClCompile Include="APITank.cpp">
+      <Filter>00.WinMain</Filter>
     </ClCompile>
     <ClCompile Include="GameObject.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="APIStudy.ico">
+    <Image Include="APITank.ico">
       <Filter>99.Default</Filter>
     </Image>
     <Image Include="small.ico">
@@ -56,7 +56,7 @@
     </Image>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="APIStudy.rc">
+    <ResourceCompile Include="APITank.rc">
       <Filter>99.Default</Filter>
     </ResourceCompile>
   </ItemGroup>

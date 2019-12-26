@@ -19,9 +19,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{FA009F7E-F307-4A28-BE04-8C5B3BEE8944}</ProjectGuid>
+    <ProjectGuid>{283E111B-8FC0-4717-A654-8A74643275CA}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>APIStudy</RootNamespace>
+    <RootNamespace>Galaga</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -141,17 +141,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="APIStudy.h" />
-    <ClInclude Include="Define.h" />
-    <ClInclude Include="GameObject.h" />
+    <ClInclude Include="Galaga.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="stdafx.h" />
-    <ClInclude Include="Struct.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="APIStudy.cpp" />
-    <ClCompile Include="GameObject.cpp" />
+    <ClCompile Include="Galaga.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -160,10 +156,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="APIStudy.rc" />
+    <ResourceCompile Include="Galaga.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="APIStudy.ico" />
+    <Image Include="Galaga.ico" />
     <Image Include="small.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

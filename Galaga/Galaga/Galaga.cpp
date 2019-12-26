@@ -1,23 +1,21 @@
-// APIStudy.cpp : 응용 프로그램에 대한 진입점을 정의합니다.
+// Galaga.cpp : 응용 프로그램에 대한 진입점을 정의합니다.
 //
 
 #include "stdafx.h"
-#include "APIStudy.h"
+#include "Galaga.h"
 
 #define MAX_LOADSTRING 100
-
 
 // 전역 변수:
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
 
-
 // 이 코드 모듈에 들어 있는 함수의 정방향 선언입니다.
 ATOM                MyRegisterClass(HINSTANCE hInstance);
 BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
-INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);  //About <- 왠진모르지만 필요업승
+INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
 int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
                      _In_opt_ HINSTANCE hPrevInstance,
@@ -29,8 +27,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 
     // TODO: 여기에 코드를 입력합니다.
 
+    // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
-    LoadStringW(hInstance, IDC_APISTUDY, szWindowClass, MAX_LOADSTRING);
+    LoadStringW(hInstance, IDC_GALAGA, szWindowClass, MAX_LOADSTRING);
     MyRegisterClass(hInstance);
 
     // 응용 프로그램 초기화를 수행합니다.
@@ -39,28 +38,19 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         return FALSE;
     }
 
-    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_APISTUDY));
+    HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_GALAGA));
 
     MSG msg;
-	//DWORD <- unsigned long
+
     // 기본 메시지 루프입니다.
-	//GetMessage 의경우 게임을 만들때 적합하지 않다..  <-Message가 들어올때까지 Block되어있음(Message가들어올때까지 프로그램 정지)
-	//PeekMessage로 사용  <- Message가있으면 true반환  없으면 false 반환
-	while (WM_QUIT!=msg.message) //<-종료메세지
-	{
-
-		//PM_REMOVE: Message Queue에서 먼저 들어온 Message를 제거함
-		//PM_NOREMOVE: Message Queue에서 Message를 제거하지 않고 그대로둠
-		while (PeekMessage(&msg, nullptr, 0, 0,PM_NOREMOVE)) 
-		{
-			if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-			{
-				TranslateMessage(&msg);
-				DispatchMessage(&msg);
-			}
-		}
-
-	}
+    while (GetMessage(&msg, nullptr, 0, 0))
+    {
+        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        {
+            TranslateMessage(&msg);
+            DispatchMessage(&msg);
+        }
+    }
 
     return (int) msg.wParam;
 }
@@ -83,10 +73,10 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
-    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_APISTUDY));
+    wcex.hIcon          = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_GALAGA));
     wcex.hCursor        = LoadCursor(nullptr, IDC_ARROW);
     wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_APISTUDY);
+    wcex.lpszMenuName   = MAKEINTRESOURCEW(IDC_GALAGA);
     wcex.lpszClassName  = szWindowClass;
     wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 
@@ -133,16 +123,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-	//CallBack 함수: 사용자가 아니라 시스템이 호출하는 함수.
-
-	// 함수 호출 규약
-	// 인자 전달 순서는 어떻게 하며, 함수 종료될 때 스택 정리를 누가 할 것인가?
-	// __cdecl:		인자 전달 순서 오른쪽 -> 왼쪽 진행. 호출자가 stack 정리.
-	// __stdcall:	인자 전달 순서 오른쪽 -> 왼쪽 진행. 피호출자가 stack 정리.
-	// __fastcall:	인자 전달 순서 오른쪽 -> 왼쪽 진행. 피호출자가 stack 정리.
-	// __thiscall:	인자 전달 순서 오른쪽 -> 왼쪽 진행. 피호출자가 stack 정리.
-
-	switch (message)
+    switch (message)
     {
     case WM_COMMAND:
         {
@@ -161,60 +142,12 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
-    case WM_PAINT: //창을 그릴때마다 호출 예: 최소화햇다가 띄울때, window크기를 바꿀때 등... 
+    case WM_PAINT:
         {
             PAINTSTRUCT ps;
-			// DC(Device Context): 그리기에 필요한 정보들을 보관하는 메모리(버퍼).
-			// HDC: DC의 핸들.
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다.
-
-			// MoveToEx: 그리기 시작점(커서 포인트, CP)을 옮기는 함수.
-			// 마지막 인자에는 이동하기 전의 커서 포인트 위치가 기록됨.			
-			//LineTo(hdc, 200, 100);
-			//LineTo(hdc, 100, 200);
-			//LineTo(hdc, 100, 100);
-			//LineTo(hdc, 200, 200);
-			//LineTo(hdc, 50, 100);
-			Rectangle(hdc, 100, 100, 400, 400); // 사각형 그리기 함수
-			Rectangle(hdc, 450, 100, 750, 400); // 사각형 그리기 함수
-			Rectangle(hdc, 800, 100, 1100, 400); // 사각형 그리기 함수
-			Rectangle(hdc, 100, 100, 400, 400); // 사각형 그리기 함수
-			MoveToEx(hdc, 135, 125, nullptr);
-			LineTo(hdc, 270, 125);
-			LineTo(hdc, 135, 270);
-			MoveToEx(hdc, 315, 110, nullptr);
-			LineTo(hdc, 315, 285);
-			Rectangle(hdc, 145, 300, 315, 375); // 사각형 그리기 함수
-
-			MoveToEx(hdc, 485, 125, nullptr);
-			LineTo(hdc, 715, 125);
-			LineTo(hdc, 485, 275);
-			MoveToEx(hdc, 600, 200, nullptr);
-			LineTo(hdc, 715, 270);
-			MoveToEx(hdc, 485, 300, nullptr);
-			LineTo(hdc, 715, 300);
-			MoveToEx(hdc, 600, 300, nullptr);
-			LineTo(hdc, 600, 350);
-			MoveToEx(hdc, 485, 325, nullptr);
-			LineTo(hdc, 485, 385);
-			LineTo(hdc, 715, 385);
-
-			Ellipse(hdc, 835, 125, 950, 250);	  // 원 그리기 함수
-			MoveToEx(hdc, 950, 175, nullptr);
-			LineTo(hdc, 1035, 175);
-			MoveToEx(hdc, 950, 200, nullptr);
-			LineTo(hdc, 1035, 200);
-			MoveToEx(hdc, 1035, 125, nullptr);
-			LineTo(hdc, 1035, 275);
-
-			//LineTo(hdc,)
-
-			Ellipse(hdc, 890, 265, 1005,390 );	  // 원 그리기 함수
-
-
-			
-			EndPaint(hWnd, &ps);
+            EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:

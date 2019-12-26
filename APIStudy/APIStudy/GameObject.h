@@ -2,10 +2,10 @@
 class CGameObject
 {
 public:
-
 	CGameObject();
 	virtual ~CGameObject();
 
-
+protected:
+	
 };
 
