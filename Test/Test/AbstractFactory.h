@@ -12,6 +12,14 @@ public:
 		temp->Initialize();
 		return temp;
 	}
+	static CGameObject* Create(float _x,float _y)
+	{
+		CGameObject * temp = new T;
+		temp->Initialize();
+		temp->SetPos(_x, _y);
+		return temp;
+	}
+	
 private:
 
 };

@@ -31,6 +31,15 @@
     <Filter Include="10.GameObject\09.AbstactFactory">
       <UniqueIdentifier>{62362086-57ef-4aa0-bcf3-cba779665d9c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="20.Manager">
+      <UniqueIdentifier>{0aa9e7ff-f427-45a5-a07d-616116767f71}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="20.Manager\CollisionManager">
+      <UniqueIdentifier>{f7bff90a-03af-4904-a678-c43a7f6b86f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="20.Manager\DetectManager">
+      <UniqueIdentifier>{f7731d55-d06b-4d7b-a9a8-56dcc2f7015e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -69,12 +78,26 @@
     <ClInclude Include="Monster.h">
       <Filter>10.GameObject\01.Monster</Filter>
     </ClInclude>
-    <ClInclude Include="MainGame.h" />
     <ClInclude Include="TypeDef.h">
       <Filter>90.Headers</Filter>
     </ClInclude>
     <ClInclude Include="AbstractFactory.h">
       <Filter>10.GameObject\09.AbstactFactory</Filter>
+    </ClInclude>
+    <ClInclude Include="MainGame.h">
+      <Filter>01.MainGame</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>10.GameObject\02.Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Function.h">
+      <Filter>90.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="CollisionManager.h">
+      <Filter>20.Manager\CollisionManager</Filter>
+    </ClInclude>
+    <ClInclude Include="DetectManager.h">
+      <Filter>20.Manager\DetectManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -93,7 +116,18 @@
     <ClCompile Include="Monster.cpp">
       <Filter>10.GameObject\01.Monster</Filter>
     </ClCompile>
-    <ClCompile Include="MainGame.cpp" />
+    <ClCompile Include="MainGame.cpp">
+      <Filter>01.MainGame</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>10.GameObject\02.Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="CollisionManager.cpp">
+      <Filter>20.Manager\CollisionManager</Filter>
+    </ClCompile>
+    <ClCompile Include="DetectManager.cpp">
+      <Filter>20.Manager\DetectManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="small.ico">
