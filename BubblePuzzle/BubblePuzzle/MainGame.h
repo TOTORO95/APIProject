@@ -1,4 +1,5 @@
 #pragma once
+class CPlayer;
 class CMainGame
 {
 

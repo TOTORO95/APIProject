@@ -9,12 +9,11 @@ CMainGame::CMainGame()
 
 CMainGame::~CMainGame()
 {
+
 }
 
 void CMainGame::Initialize()
 {
-	CPlayer player;
-	player.Initialize();
 }
 
 int CMainGame::Update()

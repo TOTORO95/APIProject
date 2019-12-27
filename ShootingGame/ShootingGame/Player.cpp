@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
 
-
 CPlayer::CPlayer()
 {
 }
@@ -26,40 +25,9 @@ void CPlayer::Initialize()
 int CPlayer::Update()
 {
 	KeyInput();
-	auto bullet = m_Bullets.begin();
-	for (bullet;bullet!=m_Bullets.end();)
-	{
-		if ((*bullet) == nullptr)
-		{
-			bullet = m_Bullets.erase(bullet);
-			continue;
-		}
-
-		(*bullet)->Update();
-		if ( (*bullet)->GetInfo().fY<= 5)
-		{
-			bullet = m_Bullets.erase(bullet);
-			continue;
-		}
-		if(m_pTarget!=nullptr)
-			(*bullet)->CheckCollide(m_pTarget);
-		//for (auto &monster : m_pTargets)
-		//{
-		//	(*bullet)->CheckCollide(monster);
-		//	if ((*bullet) == nullptr)
-		//	{
-		//		bullet = m_Bullets.erase(bullet);
-		//		break;
-		//	}
-
-		//}
-		
-
-		bullet++;
 	
-	}
 	
-	return 0;
+	return ;
 }
 
 //void CPlayer::SetTarget(vector<CGameObject*> _monsters)
@@ -76,6 +44,7 @@ void CPlayer::Render(HDC _hdc)
 {
 	UpdateRect();
 	Rectangle(_hdc, m_Rect.left, m_Rect.top, m_Rect.right, m_Rect.bottom);
+
 	for (auto &bullet : m_Bullets)
 		bullet->Render(_hdc);
 }
@@ -98,9 +67,7 @@ void CPlayer::KeyInput()
 		m_tPos.fY += m_fSpeed;
 	if (GetAsyncKeyState(VK_SPACE)	& 0x8000)
 	{
-		Bullet * temp = new Bullet;
-		temp->Initialize(m_tPos.fX, m_tPos.fY);
-		m_Bullets.push_back(temp);
+		
 	}
 
 
