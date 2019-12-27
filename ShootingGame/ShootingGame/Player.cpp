@@ -96,13 +96,13 @@ void CPlayer::KeyInput()
 		m_tPos.fY -= m_fSpeed;
 	if (GetAsyncKeyState(VK_DOWN)	& 0x8000)
 		m_tPos.fY += m_fSpeed;
-	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
+	if (GetAsyncKeyState(VK_SPACE)	& 0x8000)
 	{
 		Bullet * temp = new Bullet;
 		temp->Initialize(m_tPos.fX, m_tPos.fY);
 		m_Bullets.push_back(temp);
-		
 	}
+
 
 }
 

@@ -48,6 +48,9 @@
     <ClInclude Include="GameObject.h">
       <Filter>10_GameObejcts</Filter>
     </ClInclude>
+    <ClInclude Include="Enum.h">
+      <Filter>98_Headers</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
