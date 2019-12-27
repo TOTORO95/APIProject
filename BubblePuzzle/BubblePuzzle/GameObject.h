@@ -12,6 +12,7 @@ public:
 	void CalcAngle(INFO _info);
 
 protected:
+	int m_iDef;
 	INFO m_tInfo;
 	INFO m_tAimInfo;
 	bool m_bDead;
