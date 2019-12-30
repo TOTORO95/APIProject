@@ -22,6 +22,7 @@ public:
 	INFO GetTargetINFO() const { return m_tAimInfo; }
 	void SetTargetINFO(INFO val) { m_tAimInfo = val; }
 protected:
+	int m_iDef;
 	INFO m_tInfo;
 	INFO m_tAimInfo;
 	bool m_bDead;
