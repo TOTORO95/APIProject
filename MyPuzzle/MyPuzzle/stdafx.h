@@ -4,11 +4,6 @@
 //
 
 #pragma once
-#ifdef UNICODE
-#pragma comment(linker, "/entry:wWinMainCRTStartup /subsystem:console")
-#else
-#pragma comment(linker, "/entry:WinMainCRTStartup /subsystem:console")
-#endif
 
 #include "targetver.h"
 
@@ -21,18 +16,17 @@
 #include <malloc.h>
 #include <memory.h>
 #include <tchar.h>
-#include <cmath>
-#include <ctime>
+// 추가 STD 헤더
 #include <list>
-#include <vector>
-#include <algorithm>
+#include <cmath>
 #include <iostream>
+#include <ctime>
+
 using namespace std;
-
-
-//User Headers
-#include "Enum.h"
+// User Headers
 #include "Extern.h"
 #include "Define.h"
+#include "Enum.h"
 #include "Struct.h"
+
 

@@ -1,13 +1,6 @@
 #pragma once
 #ifndef __ENUM_H__
 
-enum BLUCK_OPTION
-{
-	RED,
-	BLUE,
-	YELLOW,
-	WHILE
-};
 enum OBJECT_STATE
 {
 	ALLIVE_OBJ,
@@ -15,6 +8,5 @@ enum OBJECT_STATE
 };
 
 
-
-#define  __ENUM_H__
+#define __ENUM_H__
 #endif // !__ENUM_H__

@@ -1,9 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="99.Defalut">
-      <UniqueIdentifier>{0439c74b-8678-4ca4-a23e-ed78733ba860}</UniqueIdentifier>
-    </Filter>
     <Filter Include="98.Headers">
       <UniqueIdentifier>{33c0d978-147d-4da7-97d5-44d4b0873505}</UniqueIdentifier>
     </Filter>
@@ -22,16 +19,16 @@
     <Filter Include="10.GameObjects\00.Player">
       <UniqueIdentifier>{f0631e28-89db-46e1-b2f1-121811c1fe3f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="99.Default">
+      <UniqueIdentifier>{0439c74b-8678-4ca4-a23e-ed78733ba860}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>99.Defalut</Filter>
-    </ClInclude>
-    <ClInclude Include="BubblePuzzle.h">
-      <Filter>98.Headers</Filter>
+      <Filter>99.Default</Filter>
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>98.Headers</Filter>
@@ -57,10 +54,13 @@
     <ClInclude Include="Player.h">
       <Filter>10.GameObjects\00.Player</Filter>
     </ClInclude>
+    <ClInclude Include="BubblePuzzle.h">
+      <Filter>00.ApiMain</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </ClCompile>
     <ClCompile Include="BubblePuzzle.cpp">
       <Filter>00.ApiMain</Filter>
@@ -77,20 +77,20 @@
   </ItemGroup>
   <ItemGroup>
     <Image Include="BubblePuzzle.ico">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </Image>
     <Image Include="small.ico">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="BubblePuzzle.rc">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt">
-      <Filter>99.Defalut</Filter>
+      <Filter>99.Default</Filter>
     </Text>
   </ItemGroup>
 </Project>

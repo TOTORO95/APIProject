@@ -24,16 +24,13 @@ void CPlayer::Initialize()
 
 int CPlayer::Update()
 {
+	UpdateRect();
 	KeyInput();
+
 	
 	
 	return ;
 }
-
-//void CPlayer::SetTarget(vector<CGameObject*> _monsters)
-//{
-//	m_pTargets=_monsters;
-//}
 
 void CPlayer::SetTarget(CGameObject * _target)
 {
@@ -42,11 +39,8 @@ void CPlayer::SetTarget(CGameObject * _target)
 
 void CPlayer::Render(HDC _hdc)
 {
-	UpdateRect();
 	Rectangle(_hdc, m_Rect.left, m_Rect.top, m_Rect.right, m_Rect.bottom);
 
-	for (auto &bullet : m_Bullets)
-		bullet->Render(_hdc);
 }
 
 
@@ -65,7 +59,7 @@ void CPlayer::KeyInput()
 		m_tPos.fY -= m_fSpeed;
 	if (GetAsyncKeyState(VK_DOWN)	& 0x8000)
 		m_tPos.fY += m_fSpeed;
-	if (GetAsyncKeyState(VK_SPACE)	& 0x8000)
+	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
 		
 	}
