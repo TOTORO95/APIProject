@@ -39,6 +39,7 @@ void CGameObject::DefalutInit()
 	m_bDead = false;
 	m_tInfo.fCX = 50;
 	m_tInfo.fCY = 50;
+	m_fSpeed = 5.f;
 	memset(&m_tAimInfo, 0, sizeof(INFO));
 }
 

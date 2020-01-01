@@ -57,6 +57,11 @@
     <ClInclude Include="BubblePuzzle.h">
       <Filter>00.ApiMain</Filter>
     </ClInclude>
+    <ClInclude Include="Block.h" />
+    <ClInclude Include="Typedef.h">
+      <Filter>98.Headers</Filter>
+    </ClInclude>
+    <ClInclude Include="AbsFactory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -74,6 +79,7 @@
     <ClCompile Include="Player.cpp">
       <Filter>10.GameObjects\00.Player</Filter>
     </ClCompile>
+    <ClCompile Include="Block.cpp" />
   </ItemGroup>
   <ItemGroup>
     <Image Include="BubblePuzzle.ico">

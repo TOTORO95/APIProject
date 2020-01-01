@@ -1,12 +1,19 @@
 #pragma once
 #ifndef __ENUM_H__
 
-enum BLUCK_OPTION
+enum OBJECT_TYPE
+{
+	PLAYER,
+	BLOCK,
+	END_OBJTYPE
+};
+enum BLOCK_TYPE
 {
 	RED,
 	BLUE,
 	YELLOW,
-	WHILE
+	WHILE,
+	END_BLOCK
 };
 enum OBJECT_STATE
 {

@@ -32,7 +32,9 @@ using namespace std;
 
 //User Headers
 #include "Enum.h"
+#include "Typedef.h"
 #include "Extern.h"
 #include "Define.h"
 #include "Struct.h"
+#include "AbsFactory.h"
 

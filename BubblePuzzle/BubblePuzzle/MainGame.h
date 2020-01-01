@@ -1,5 +1,5 @@
 #pragma once
-class CPlayer;
+class CGameObject;
 class CMainGame
 {
 
@@ -12,7 +12,8 @@ public:
 	void Render();
 	void Release();
 private:
-	CPlayer *m_pPlayer;
+	CGameObject* m_pPlayer;
+	list<CGameObject*> m_pObjList[END_OBJTYPE];
 	HDC m_hdc;
 	RECT m_WinRect;
 };

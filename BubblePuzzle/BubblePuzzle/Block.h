@@ -1,24 +1,24 @@
 #pragma once
 #include "GameObject.h"
-class CPlayer :
-	public CGameObject
+class CBlock :public CGameObject
 {
+
 public:
-	CPlayer();
-	~CPlayer();
+	CBlock();
+	CBlock(INFO _playerinfo,INFO _taiminfo);
+	~CBlock();
 
 	// CGameObject을(를) 통해 상속됨
 	virtual void Initialize() override;
 	virtual int Update() override;
 	virtual void Render(HDC _hdc) override;
 	virtual void Release() override;
-	
-public :
-	void InputKey();
+public:
+
+	void Move();
+
 
 private:
-	CGameObject *m_pBlock;
-
 
 
 };
