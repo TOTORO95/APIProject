@@ -12,8 +12,10 @@ public:
 	virtual int Update() override;
 	virtual void Render(HDC _hdc) override;
 	virtual void Release() override;
-	
-public :
+
+public:
+	CGameObject * GetBlock() const { return m_pBlock; }
+	void SetBlock(CGameObject * val) { m_pBlock = val; }
 	void InputKey();
 
 private:

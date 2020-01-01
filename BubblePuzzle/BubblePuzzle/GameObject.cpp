@@ -14,17 +14,17 @@ CGameObject::~CGameObject()
 }
 void CGameObject::UpdateRect()
 {
-	m_tRect.left = m_tInfo.fPosX - m_tInfo.fCX*0.5f;
-	m_tRect.right = m_tInfo.fPosX + m_tInfo.fCX*0.5f;
-	m_tRect.top= m_tInfo.fPosY - m_tInfo.fCY*0.5f;
-	m_tRect.bottom = m_tInfo.fPosY + m_tInfo.fCY*0.5f;
+	m_tRect.left = GetInfo().fPosX - GetInfo().fCX*0.5f;
+	m_tRect.right = GetInfo().fPosX + GetInfo().fCX*0.5f;
+	m_tRect.top= GetInfo().fPosY - GetInfo().fCY*0.5f;
+	m_tRect.bottom = GetInfo().fPosY + GetInfo().fCY*0.5f;
 }
 
 void CGameObject::CalcAngle(INFO _info)
 {
 
-	m_tAimInfo.fPosX = cosf(_info.fPosX - m_tInfo.fPosX);
-	m_tAimInfo.fPosY = sinf(_info.fPosY - m_tInfo.fPosY);
+	m_tAimInfo.fPosX = cosf(_info.fPosX - GetInfo().fPosX);
+	m_tAimInfo.fPosY = sinf(_info.fPosY - GetInfo().fPosY);
 
 
 }
@@ -41,6 +41,7 @@ void CGameObject::DefalutInit()
 	m_tInfo.fCY = 50;
 	m_fSpeed = 5.f;
 	memset(&m_tAimInfo, 0, sizeof(INFO));
+	m_bTarget = false;
 }
 
 void CGameObject::SetPos(float _x, float _y)

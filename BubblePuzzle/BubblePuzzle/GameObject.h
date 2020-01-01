@@ -9,6 +9,8 @@ public:
 	virtual void Render(HDC _hdc)=0;
 	virtual void Release() = 0;
 
+	RECT GetWinRect() const { return m_tWinRect; }
+	void SetWinRect(RECT val) { m_tWinRect = val; }
 public:
 	void DefalutInit();
 	void UpdateRect();
@@ -16,6 +18,8 @@ public:
 	bool Isdead();
 
 public:
+	INFO GetInfo() const { return m_tInfo; }
+	void SetInfo(INFO val) { m_tInfo = val; }
 	void SetPos(float _x,float _y );
 	void SetSize(float _cx, float _cy);
 	void SetDead(bool val) { m_bDead = val; }
@@ -24,14 +28,23 @@ public:
 	Object_type GetObjType() const { return m_ObjectType; }
 	void SetObjType(Object_type val) { m_ObjectType = val; }
 
+	float GetRadian() const { return m_fRadian; }
+	void SetRadian(float val) { m_fRadian = val; }
+	bool GetTarget() const { return m_bTarget; }
+	void SetTarget(bool val) { m_bTarget = val; }
+
 protected:
 	Object_type m_ObjectType;
+	RECT m_tWinRect;
 	INFO m_tInfo;
 	INFO m_tAimInfo;
-	bool m_bDead;
 	RECT m_tRect;
+	HBRUSH Brush, oBrush;
+	bool m_bDead;
 	float m_fSpeed;
 	float m_fAngle;
 	float m_fRadian;
+	bool m_bTarget;
+
 };
 
