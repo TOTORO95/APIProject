@@ -22,8 +22,8 @@ void CPlayer::Initialize()
 	m_fAngle = 180;
 	SetBlock(nullptr);
 	SetObjType(PLAYER);
-	
-	
+
+
 }
 
 int CPlayer::Update()
@@ -31,11 +31,13 @@ int CPlayer::Update()
 	if (m_bDead == DEAD_OBJ)
 		return DEAD_OBJ;
 	SetRadian(m_fAngle / 180 * PI);
-	m_tAimInfo.fPosX = GetInfo().fPosX +cosf(GetRadian())* 100;
-	m_tAimInfo.fPosY = GetInfo().fPosY + sinf(GetRadian())* 100;
+	m_tAimInfo.fPosX = GetInfo().fPosX + cosf(GetRadian()) * 100;
+	m_tAimInfo.fPosY = GetInfo().fPosY + sinf(GetRadian()) * 100;
 	InputKey();
-
-
+	if ((dynamic_cast<CBlock*>(m_pBlock))->GetIsSet())
+	{
+		//m_pBlock = nullptr;
+	}
 	return ALLIVE_OBJ;
 }
 void CPlayer::Render(HDC _hdc)
@@ -61,7 +63,7 @@ void CPlayer::InputKey()
 
 	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
 	{
-		m_fAngle-= m_fSpeed;
+		m_fAngle -= m_fSpeed;
 	}
 	if (GetAsyncKeyState(VK_UP) & 0x8000)
 	{
@@ -79,8 +81,8 @@ void CPlayer::InputKey()
 	}
 	if (GetAsyncKeyState(VK_SPACE) & 0x8000)
 	{
-		if (m_pBlock != nullptr)
-		{ 
+		if (m_pBlock != nullptr && !m_pBlock->GetTarget())
+		{
 			m_pBlock->SetRadian(m_fRadian);
 			m_pBlock->SetTarget(true);
 		}

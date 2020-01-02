@@ -14,12 +14,12 @@ public:
 
 		return temp;
 	};
-	static CGameObject*  CreateObj(INFO _playerinfo,OBJECT_TYPE _objtpye, RECT _winrect)
+	static CGameObject*  CreateObj(INFO _playerinfo, OBJECT_TYPE _objtpye, RECT _winrect)
 	{
 		CGameObject* temp = new T();
 		temp->SetObjType(_objtpye);
 		temp->SetPos(_playerinfo.fPosX, _playerinfo.fPosY);
-		temp->SetSize(50,50);
+		temp->SetSize(50, 50);
 		temp->SetDead(false);
 		temp->SetWinRect(_winrect);
 		temp->Initialize();
@@ -27,7 +27,7 @@ public:
 		return temp;
 	};
 
-	static CGameObject*  CreateObj(INFO _playerinfo,INFO _taiminfo)
+	static CGameObject*  CreateObj(INFO _playerinfo, INFO _taiminfo)
 	{
 		CGameObject* temp = new T();
 		temp->SetPos(_playerinfo.fPosX, _playerinfo.fPosY);

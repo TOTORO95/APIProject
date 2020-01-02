@@ -14,7 +14,7 @@ public:
 	virtual void Release() override;
 
 public:
-	CGameObject * GetBlock() const { return m_pBlock; }
+	CGameObject* GetBlock() const { return m_pBlock; }
 	void SetBlock(CGameObject * val) { m_pBlock = val; }
 	void InputKey();
 

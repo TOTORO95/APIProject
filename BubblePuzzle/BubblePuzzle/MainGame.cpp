@@ -17,7 +17,6 @@ void CMainGame::Initialize()
 	GetClientRect(g_hWnd, &m_WinRect);
 	m_hdc = GetDC(g_hWnd);
 	m_pObjList[PLAYER].push_back(AbsFactory<CPlayer>::CreateObj(m_WinRect));
-	//TODO: √µ¿Âø°¥Í¿ª∂ß ∏ÿ√ﬂ∞‘ «œ±‚
 	//SetPos(m_WinRect.right*0.5f, m_WinRect.bottom*0.95f);
 
 
@@ -31,8 +30,8 @@ void CMainGame::Initialize()
 
 int CMainGame::Update()
 {
-	
-	for (int i = 0;i<END_OBJTYPE;i++)
+
+	for (int i = 0; i < END_OBJTYPE; i++)
 	{
 		auto itr_Begin = m_pObjList[i].begin();
 		auto itr_End = m_pObjList[i].end();
@@ -42,22 +41,22 @@ int CMainGame::Update()
 			{
 				if ((**itr_Begin).Isdead() == DEAD_OBJ)
 					return DEAD_OBJ;
+
 				if ((*(dynamic_cast<CPlayer*>(*itr_Begin))).GetBlock() == nullptr)
 				{
-					cout << "µÈæÓø»" << endl;
+					m_pObjList[BLOCK].push_back(AbsFactory<CBlock>::CreateObj((**itr_Begin).GetInfo(), BLOCK, m_WinRect));
+					(*(dynamic_cast<CPlayer*>(*itr_Begin))).SetBlock(m_pObjList[BLOCK].back());
 
-					m_pObjList[BLOCK].push_back(AbsFactory<CBlock>::CreateObj((**itr_Begin).GetInfo(),BLOCK, m_WinRect));
-					(*(dynamic_cast<CPlayer*>(*itr_Begin))).SetBlock(m_pObjList[BLOCK].front());
-				}				
+				}
 			}
 
 			(**itr_Begin).Update();
 			itr_Begin++;
 
-			
+
 		}
 	}
-
+	//CCollisionManager::CollisionSphere(m_pObjList[BLOCK], m_pObjList[BLOCK]);
 
 
 	return ALLIVE_OBJ;
@@ -66,7 +65,7 @@ int CMainGame::Update()
 
 void CMainGame::Render()
 {
-	Rectangle(m_hdc, m_WinRect.left, m_WinRect.top, m_WinRect.right,m_WinRect.bottom);
+	Rectangle(m_hdc, m_WinRect.left, m_WinRect.top, m_WinRect.right, m_WinRect.bottom);
 	for (int i = 0; i < END_OBJTYPE; i++)
 	{
 		auto itr_Begin = m_pObjList[i].begin();
@@ -75,6 +74,7 @@ void CMainGame::Render()
 		{
 			(**itr_Begin).Render(m_hdc);
 			itr_Begin++;
+
 		}
 	}
 	//m_pPlayer->Render(m_hdc);
